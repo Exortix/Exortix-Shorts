@@ -87,6 +87,30 @@ body {
 	overflow: hidden;
 	text-overflow: ellipsis;
 }
+.shorts .video-wrapper .controls {
+	position: absolute;
+	bottom: 0px;
+	right: 0%;
+	margin: 10px 10px;
+	z-index: 2;
+	font-size: 18px;
+	color: #fff;
+	cursor: pointer;
+	/* width: 100%; */
+	/* background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.4)); */
+}
+/* .shorts .video-wrapper .controls i {
+	display: block;
+}
+.shorts .video-wrapper .controls i.fullscreen {
+	display: block;
+} */
+.shorts .video-wrapper .controls i.sound {
+	margin-right: 10px;
+	display: none;
+}
+
+
 
 #shorts {
 	background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.4));

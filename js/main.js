@@ -30,7 +30,6 @@ let currentIndex = (Number(localStorage.getItem("shortsId")) != 0 && !isNaN(loca
 
 getShorts("json/videos.json")
 
-
 async function getShorts(url) {
   shortVideosData = await fetch(url)
   .then(response => response.json())
@@ -38,6 +37,7 @@ async function getShorts(url) {
     displayVideos(data)
     setCurrentIndex(data)
     createSwipe(document.querySelector("#shorts"), currentIndex);
+    setPlay(currentIndex)
     return data
   })
   .catch(error => console.error(error));
@@ -50,11 +50,15 @@ function displayVideos(data) {
           videoElement = `
           <div class="video-wrapper">
           <div class="video">
-            <video src="${video.src}" index="${index}" onclick="playpause(this)"  loop="loop"></video>
+            <video src="${video.src}" index="${index}" onclick="playpause(this)" allowfullscreen loop="loop"></video>
           </div>
           <div class="details">
             <h2>${video.title}</h2>
             <p>${video.description}</p>
+          </div>
+          <div class="controls">
+            <i onclick="muteunmute(this)" class="sound fa fa-solid fa-volume-low"></i>
+            <i onclick="fullScreen(this)" class="fullscreen fa fa-solid fa-expand"></i>
           </div>
           </div>`
         break;
@@ -129,4 +133,20 @@ function setCurrentIndex(data) {
     currentIndex = 0
   if (currentIndex != null)
     localStorage.setItem("shortsId", currentIndex)
+}
+
+function fullScreen(ref) {
+  ref.parentElement.parentElement.querySelector("video").requestFullscreen()
+}
+function muteunmute(ref) {
+  let video = ref.parentElement.parentElement.querySelector("video")
+  video.muted = !video.muted;
+  if (video.muted) {
+    ref.classList.add("fa-volume-xmark")
+    ref.classList.remove("fa-volume-low")
+  }
+  else {
+    ref.classList.remove("fa-volume-xmark")
+    ref.classList.add("fa-volume-low")
+  }
 }
