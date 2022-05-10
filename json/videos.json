@@ -1,0 +1,26 @@
+[
+    {
+        "src": "videos/cottonbro.mp4",
+        "title": "Cotton Bro Reveal!",
+        "description": "Enjoying his life",
+        "type": "file"
+      },
+      {
+        "src": "https://www.w3schools.com/html/movie.mp4",
+        "title": "Bear chilling with seagulls",
+        "description": "Watch till the end!",
+        "type": "file"
+      },
+      {
+        "src": "https://assets.mixkit.co/videos/preview/mixkit-waves-in-the-water-1164-large.mp4",
+        "title": "OCEAN",
+        "description": "",
+        "type": "file"
+      },
+      {
+        "src": "https://archive.org/download/0107Okojo27/0107_Okojo_27.mp4",
+        "title": "Okojo",
+        "description": "Season 1 Episode 07",
+        "type": "file"
+      }
+]
