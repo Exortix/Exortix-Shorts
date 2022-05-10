@@ -24,7 +24,7 @@ function displayVideos(data) {
           videoElement = `
           <div class="video-wrapper">
           <div class="video">
-            <video src="${video.src}" index="${index}" onclick="playpause(this)" autoplay="false" loop="loop"></video>
+            <video src="${video.src}" index="${index}" onclick="playpause(this)"  loop="loop"></video>
           </div>
           <div class="details">
             <h2>${video.title}</h2>
@@ -81,9 +81,9 @@ function setPlay(index) {
   let videoWrapper = document.querySelectorAll(".shorts .shorts-wrap .video-wrapper")[index];
   let video = videoWrapper.querySelector("video");
   video.classList.add("active");
-  video.play();
   currentIndex = index
   localStorage.setItem("shortsId", currentIndex)
+  video.play();
 }
 function createSwipe(swipeElement, currentIndex) {
   new Swipe(swipeElement, {
@@ -98,7 +98,6 @@ function createSwipe(swipeElement, currentIndex) {
     }
   });
 }
-
 function setCurrentIndex(data) {
   if (currentIndex > data.length-1 || currentIndex < 0)
     currentIndex = 0
